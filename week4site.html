@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <form action="//submit.form" id="EmploymentApplication100" method="post" onsubmit="return ValidateForm(this);">
+<script type="text/javascript">
+function ValidateForm(frm) {
+if (frm.First_Name.value == "") { alert('First name is required.'); frm.First_Name.focus(); return false; }
+if (frm.Last_Name.value == "") { alert('Last name is required.'); frm.Last_Name.focus(); return false; }
+if (frm.Email_Address.value == "") { alert('Email address is required.'); frm.Email_Address.focus(); return false; }
+if (frm.Email_Address.value.indexOf("@") < 1 || frm.Email_Address.value.indexOf(".") < 1) { alert('Please enter a valid email address.'); frm.Email_Address.focus(); return false; }
+if (frm.Position.value == "") { alert('Position is required.'); frm.Position.focus(); return false; }
+if (frm.Phone.value == "") { alert('Phone is required.'); frm.Phone.focus(); return false; }
+return true; }
+</script>
+<script type="text/javascript">
+    function addField (argument) {
+        var myTable = document.getElementById("myTable");
+        var currentIndex = myTable.rows.length;
+        var currentRow = myTable.insertRow(-1);
+
+        var linksBox = document.createElement("input");
+        linksBox.setAttribute("name", "links" + currentIndex);
+
+        var keywordsBox = document.createElement("input");
+        keywordsBox.setAttribute("name", "keywords" + currentIndex);
+
+        var violationsBox = document.createElement("input");
+        violationsBox.setAttribute("name", "violationtype" + currentIndex);
+
+        var addRowBox = document.createElement("input");
+        addRowBox.setAttribute("type", "button");
+        addRowBox.setAttribute("value", "Add Another Reference");
+        addRowBox.setAttribute("onclick", "addField();");
+        addRowBox.setAttribute("class", "button");
+
+        var currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(linksBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(keywordsBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(violationsBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(addRowBox);
+    }
+</script>
+</head>
+<body>
+<div class="container">
+  <h2>Week 4 Bootstrap website (Job App)</h2>
+  <form action="/action_page.php">
+    
+    <div class="form-group">
+    <label for="First_Name"><b>First name *</b></label><br />
+      <input input name="First_Name" type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+    </div>
+    
+    <div class="form-group">
+        <label for="Last_Name"><b>Last name *</b></label><br />
+        <input name="Last_Name" type="text" class="form-control" id="name" placeholder="Enter Last Name" name="name">
+    
+      <div class="form-group">
+        <label for="Email_Address"><b>Email *</b></label><br />
+        <input name="Email_Address" class="form-control" id="name" placeholder="Enter Email" name="name">
+    
+     <div class="form-group">
+        <label for="Position"><b>Position you are applying for *</b></label><br />
+        <input name="Position" type="text" class="form-control" id="name" placeholder="" name="name">
+    
+    <div class="form-group">
+        <label for="Phone"><b>Phone *</b></label><br />
+        <input name="Phone" type="text" class="form-control" id="name" placeholder="Main Phone please" name="name">
+    </div>
+    <h2>Reference(s)</h2>
+    <table id="myTable">
+        <thead>
+            <tr>
+              <th scope="col">First and Last</th>
+              <th scope="col">Number</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+        <tr>
+            <td><input type="text" name="links"></td>
+            <td><input type="text" name="keywords"></td>
+            <td><input type="text" name="violationtype"></td>
+            <td><input type="button" class="button" value="Add Another Reference" onclick="addField();"></td>
+        </tr>
+    </table>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember">Click this if you prefer to be Texted</label>
+    </div>
+    <button type="submit" class="btn btn-default">submit</button>
+  </form>
+</div>
+
+</body>
+</html>
